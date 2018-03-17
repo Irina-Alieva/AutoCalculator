@@ -8,27 +8,22 @@ $(document).ready(function(){
 
 	//Вычисление стоимости
 	
-	var modelSpecs,
-		modelPrice,
-		modelSpecsHolder,
-		modelPriceHolder,
-		modelPriceUSDHolder;
-
-		modelSpecsHolder=$('#modelSpecs');
-		modelPriceHolder=$('#modelPrice');
-		modelSpecs = '';
-		modelPrice = 0;
+	var modelSpecs = '',
+		modelPrice = 0,
+		modelSpecsHolder = $('#modelSpecs'),
+		modelPriceHolder = $('#modelPrice'),
+		modelPriceUSDHolder = $('#modelPriceUSD');
 
 		//При открытии страницы
 		calculatePrice();
 		choiceSpecifications();
-		/*calculateUSD();*/
+		calculateUSD();
 
 		//При изменении выбора
 		$('#autoform input').on('change',function(){
 			calculatePrice();
 			choiceSpecifications();
-			/*calculateUSD();*/
+			calculateUSD();
 		});
 
 
@@ -47,8 +42,7 @@ $(document).ready(function(){
 				modelPriceEngine = parseInt(modelPriceEngine);
 				modelPriceTransmission = parseInt(modelPriceTransmission);
 				modelPriceSuplimentary = parseInt(modelPriceSuplimentary);
-				modelPrice = modelPriceEngine + modelPriceTransmission + modelPriceSuplimentary + ' рублей';
-				modelPriceHolder.text(addSpace(modelPrice));
+				modelPrice = modelPriceEngine + modelPriceTransmission + modelPriceSuplimentary;
 		}
 
 		// Получаем курс валют
@@ -68,22 +62,25 @@ $(document).ready(function(){
 		});
 
 		function addSpace(nStr) {
-	    nStr += '';
-	    x = nStr.split('.');
-	    x1 = x[0];
-	    x2 = x.length > 1 ? '.' + x[1] : '';
-	    var rgx = /(\d+)(\d{3})/;
-	    while (rgx.test(x1)) {
-	        x1 = x1.replace(rgx, '$1' + ' ' + '$2');
-	    }
-	    return x1 + x2;
+			nStr += ''; 
+			x = nStr.split('.');
+			x1 = x[0];
+			x2 = x.length > 1 ? '.' + x[1] : '';
+			var rgx = /(\d+)(\d{3})/;
+			while (rgx.test(x1)) {
+				x1 = x1.replace(rgx, '$1' + ' ' + '$2');
+			}
+			return x1 + x2;
 		}
 
 		function calculateUSD(){
-		var modelPriceUSD = modelPrice / rurUsdRate;
-		// alert(modelPriceUSD);
-		modelPriceUSDHolder.text(addSpace(modelPriceUSD));
-		modelPriceHolder.text(addSpace(modelPrice));
-	}	
+			console.log(modelPrice);
+			console.log(rurUsdRate);
+			var modelPriceUSD = modelPrice / rurUsdRate;
+			console.log(modelPriceUSD);
+			// alert(modelPriceUSD);
+			modelPriceUSDHolder.text('$' + addSpace(modelPriceUSD.toFixed(0)));
+			modelPriceHolder.text(addSpace(modelPrice) + ' рублей' );
+		}	
 
 });
