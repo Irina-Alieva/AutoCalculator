@@ -1,0 +1,140 @@
+body {
+	padding: 50px;
+}
+
+.main {
+	display: flex;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+}
+
+.choices {
+	display: flex;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+}
+
+.choice {
+	display: flex;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+
+.form-block {
+	
+}
+
+.text-center {
+	text-align:center;
+} 
+
+a {
+	text-decoration: none;
+	cursor:pointer;
+}
+
+.logo {
+	height: 60px;
+}
+
+.imgHolder {
+	background-image: url("../img/text-solaris.png");
+	background-repeat: no-repeat;
+	background-position: center 50px;
+}
+
+.img-selector {
+	margin-top: 20px;
+}
+
+.img-selector__items {
+	display: inline-block;
+	cursor: pointer;
+	width: 50px;
+	height: 50px;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
+}
+
+.img-white {
+	background-color: #cfcfcf;
+}
+
+.img-blue {
+	background-color: #325488 ;
+}
+
+.img-red {
+	background-color: #c64040;
+}
+
+.img-black {
+	background-color: #08090b;
+}
+
+.img-white-pure {
+	background-color: #f0f0f0;
+}
+
+.img-orange {
+	background-color: #d87c5a;
+}
+
+.img-gray {
+	background-color: #7f7f7f;
+}
+
+input {
+	margin-bottom: 20px;
+}
+
+label {
+	cursor: pointer;
+}
+
+.model-summary {
+	background-color: rgba(17,126,209,0.05);
+	padding: 25px;
+	text-align: left;
+	height: 300px;
+}
+.model-name {
+	font-weight: bold;
+	font-size: 24px;
+	margin-bottom: 10px;
+	color: #03A9F4;
+}
+.model-specs {
+	font-size: 14px;
+	margin-bottom: 15px;
+	color: #607D8B;
+	max-width: 300px;
+	line-height: 1.5;
+}
+.model-price {
+	font-weight: bold;
+	font-size: 18px;
+	color: #8BC34A;
+	margin-bottom: 15px;
+}
+
+.button {
+	border-radius: 50px;
+	display: inline-block;
+	background-color: #1976D2;
+	color: #fff;
+	padding: 10px 25px;
+	font-weight: bold;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.button:hover, .button:focus {
+	background-color: #2196F3;
+}
+
+.button:active  {
+	background-color: #0D47A1;
+	color: #BBDEFB;
+}
